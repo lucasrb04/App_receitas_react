@@ -1,0 +1,17 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Ubuntu";
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.card-receitas-favoritas {
+  background-color: #0d0d0d;
+  width: 100%;
+}
+
+.card-receitas-favoritas .itens-card-favoritas {}
+  

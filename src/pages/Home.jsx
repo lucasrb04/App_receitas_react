@@ -50,7 +50,7 @@ function Home() {
   };
   const { checkPassword, checkEmail } = checkLogin;
   return (
-    <main>
+    <main className="main-login">
       <section className="sectionForm">
         <img src={ Logo } alt="Logo" />
         <Form>

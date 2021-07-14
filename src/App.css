@@ -24,7 +24,7 @@ html {
   width: 100%;
 }
 
-main {
+.main-login {
   align-items: center;
   display: flex;
   flex-wrap: row wrap;
@@ -58,9 +58,9 @@ main {
   background-color: #dc3545;
 }
 
-.explore {
+/* .explore {
   background-color: #0d0d0d;
-}
+} */
 
 .riscado {
   text-decoration: solid;
