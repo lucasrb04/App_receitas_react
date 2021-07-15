@@ -26,6 +26,7 @@ html {
 
 main {
   align-items: center;
+  background-color: #0d0d0d;
   display: flex;
   flex-wrap: row wrap;
   height: 100%;
@@ -63,8 +64,8 @@ main {
 }
 
 .imgExplore {
-  margin-top: 50px;
   margin: auto;
+  margin-top: 50px;
   width: 80%;
 }
 
@@ -169,8 +170,9 @@ main {
   }
 }
 
-.card {
+.main-card {
   align-items: center;
+  background-color: black;
   border-top-style: none;
   color: black;
   display: flex;
@@ -178,9 +180,14 @@ main {
   padding-bottom: 5%;
   text-decoration: none;
   text-decoration-style: none;
+
 }
 
 .ulCard {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
   margin-top: 15%;
 }
 
@@ -221,3 +228,14 @@ main {
 .headingProfile {
   margin-bottom: 20%;
 }
+.filter-buttons {
+  background-color: #0d0d0d;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20%;
+}
+
+.shadownCard {
+  box-shadow: rgba(255, 255, 255, 0.4) 5px 5px , rgba(255, 255, 255, 0.3) 10px 10px , rgba(255, 255, 255, 0.2) 15px 15px , rgba(255, 255, 255, 0.1) 20px 20px ,
+    rgba(255, 255, 255, 0.05) 25px 25px; }
+
