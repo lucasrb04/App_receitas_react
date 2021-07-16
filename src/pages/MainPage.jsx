@@ -29,8 +29,8 @@ function MainPage() {
       <Header />
       <div className="main-card">
         {pathname.includes('/bebidas') ? <CardDrink /> : <CardMeal /> }
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }
