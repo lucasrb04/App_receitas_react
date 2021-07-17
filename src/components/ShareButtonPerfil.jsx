@@ -23,7 +23,7 @@ export default function ShareButtonPerfil({ type, id, index }) {
     }, TWO_SECONDS);
   };
   return (
-    <main>
+    <div>
       <div>
         {msgCopy ? 'Link copiado!' : ''}
       </div>
@@ -32,9 +32,10 @@ export default function ShareButtonPerfil({ type, id, index }) {
           src={ shareIcon }
           alt="botão de compartilhar"
           data-testid={ `${index}-horizontal-share-btn` }
+          // width="45px"
         />
       </button>
-    </main>
+    </div>
   );
 }
 

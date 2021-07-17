@@ -19,6 +19,7 @@ export default function ScreenFavoriteButton({ id, index }) {
         src={ blackHeartIcon }
         alt="imagem de favoritar"
         data-testid={ `${index}-horizontal-favorite-btn` }
+        // width="45px"
       />
     </button>
   );

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Card, CardGroup } from 'react-bootstrap';
 import Header from '../components/Header';
 import FiltersButtons from '../components/FiltersButtons';
 import RecipesContext from '../Context/RecipesContext';
@@ -13,53 +14,67 @@ function ReceitasFavoritas() {
   && `${area} - ${category}`;
 
   return (
-    <>
+    <main>
       <Header />
       <FiltersButtons />
-      { favoriteFilters === null
-        ? <p />
-        : favoriteFilters.map((
-          {
-            image,
-            category,
-            name,
-            id,
-            area,
-            type,
-            alcoholicOrNot,
-          }, index,
-        ) => (
-          <div key={ id }>
-            <button type="button" onClick={ () => history.push(`/${type}s/${id}`) }>
-              <img
-                src={ image }
-                alt="xxxx"
-                data-testid={ `${index}-horizontal-image` }
-                width="50px"
-              />
-            </button>
-            <button type="button" onClick={ () => history.push(`/${type}s/${id}`) }>
-              <span
-                data-testid={ `${index}-horizontal-name` }
-              >
-                { name }
-              </span>
-            </button>
-            <ShareButtonPerfil type={ type } id={ id } index={ index } />
-            <ScreenFavoriteButton
-              id={ id }
-              index={ index }
-            />
-            <div data-testid={ `${index}-horizontal-top-text` }>
-              { areaAndCategory(area, category) }
-            </div>
+      <div className="ulCard">
+        { favoriteFilters === null
+          ? <p />
+          : favoriteFilters.map((
             {
-              alcoholicOrNot
-            && <h3 data-testid={ `${index}-horizontal-top-text` }>{ alcoholicOrNot }</h3>
-            }
-          </div>
-        ))}
-    </>
+              image,
+              category,
+              name,
+              id,
+              area,
+              type,
+              alcoholicOrNot,
+            }, index,
+          ) => (
+            <CardGroup key={ id } className="main-card">
+              <Card
+                border="dark"
+                style={ { width: '10rem' } }
+                className="mb-2 shadownCard"
+                bg="dark"
+                text="white"
+              >
+                <button type="button" onClick={ () => history.push(`/${type}s/${id}`) }>
+                  <Card.Img
+                    variant="top"
+                    src={ image }
+                    alt="xxxx"
+                    data-testid={ `${index}-horizontal-image` }
+                  />
+                </button>
+                <Card.Body>
+                  <button type="button" onClick={ () => history.push(`/${type}s/${id}`) }>
+                    <Card.Title
+                      data-testid={ `${index}-horizontal-name` }
+                    >
+                      { name }
+                    </Card.Title>
+                  </button>
+                  <Card.Text data-testid={ `${index}-horizontal-top-text` }>
+                    { areaAndCategory(area, category) }
+                  </Card.Text>
+                  {
+                    alcoholicOrNot
+                && <Card.Text data-testid={ `${index}-horizontal-top-text` }>{ alcoholicOrNot }</Card.Text>
+                  }
+                </Card.Body>
+                <Card.Footer className="card-footer">
+                  <ShareButtonPerfil type={ type } id={ id } index={ index } />
+                  <ScreenFavoriteButton
+                    id={ id }
+                    index={ index }
+                  />
+                </Card.Footer>
+              </Card>
+            </CardGroup>
+          ))}
+      </div>
+    </main>
   );
 }
 
