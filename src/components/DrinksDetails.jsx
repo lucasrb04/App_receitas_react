@@ -14,6 +14,7 @@ export default function DrinksDetails() {
   const [measure, setMeasure] = useState([]);
   const { stateDrink, setStateDrink } = useContext(RecipesContext);
   const { pathname } = useLocation();
+  const [invisibleButton, setInvisibleButton] = useState(false);
   const [stateChangeHeart, setStateChangeHeart] = useState(true);
   const [checkButtonstate, setChekButtonState] = useState(false);
 
@@ -67,76 +68,87 @@ export default function DrinksDetails() {
   useEffect(filterDetails, [stateDrink]);
   const { strDrinkThumb, strDrink, strInstructions,
     strAlcoholic, idDrink } = stateDrink[0];
+
   const checkButton = () => {
+    const recipeFinish = JSON.parse(localStorage.getItem('doneRecipes') || ('[]'));
+    const buttonInvisible = recipeFinish.some((element) => element.id === id);
+    setInvisibleButton(buttonInvisible);
+  };
+  useEffect(checkButton, []);
+  const changeButton = () => {
     const url = pathname.split('/')[2];
     const { cocktails } = JSON.parse(localStorage.getItem('inProgressRecipes') || ('{}'));
     const keysCocktais = cocktails ? Object.keys(cocktails) : [];
     const checkKeys = keysCocktais.includes(url);
     setChekButtonState(checkKeys);
   };
-  useEffect(checkButton, []);
+  useEffect(changeButton, []);
   return (
-    <div>
+    <>
       <img
         src={ strDrinkThumb }
         alt="imagem da bebida"
         data-testid="recipe-photo"
-        width="250px"
+        width="100%"
       />
-      <h1 data-testid="recipe-title">{strDrink}</h1>
-      <div className="favorite-share">
-        <ShareButton />
-        <FavoriteButton
-          stateChangeHeart={ stateChangeHeart }
-          setStateChangeHeart={ setStateChangeHeart }
-          removeFavorited={ removeFavorited }
-        />
+      <div className="in_progress_recipes">
+        <h1 data-testid="recipe-title">{strDrink}</h1>
+        <div className="favorite-share">
+          <ShareButton />
+          <FavoriteButton
+            stateChangeHeart={ stateChangeHeart }
+            setStateChangeHeart={ setStateChangeHeart }
+            removeFavorited={ removeFavorited }
+          />
+        </div>
+        <h5 data-testid="recipe-category">{strAlcoholic}</h5>
+        <h3>Ingredientes</h3>
+        <ul>
+          {ingredients.map((ingredient, index) => (
+            <li
+              data-testid={ `${index}-ingredient-name-and-measure` }
+              key={ ingredient }
+            >
+              {`${ingredient} ${
+                measure[index] !== undefined ? `-${measure[index]}` : ''
+              }`}
+            </li>
+          ))}
+        </ul>
+        <h3>Instruções</h3>
+        <p data-testid="instructions" className="instrucoesP">{strInstructions}</p>
+        <Carousel>
+          {mealsAll.map((meals, index) => (
+            <Carousel.Item
+              interval={ 850 }
+              key={ index }
+              data-testid={ `${index}-recomendation-card` }
+            >
+              <img
+                className="d-block w-50"
+                src={ meals.strMealThumb }
+                alt="slide"
+              />
+              <Carousel.Caption data-testid={ `${index}-recomendation-title` }>
+                <h3>{meals.strMeal}</h3>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+        <div className="button-recipes">
+          <Link to={ `/bebidas/${idDrink}/in-progress` }>
+            <Button
+              type="button"
+              data-testid="start-recipe-btn"
+              variant="danger"
+              className={ invisibleButton
+                ? 'iniciarReceitaInvisible' : 'iniciarReceita' }
+            >
+              {checkButtonstate ? 'Continuar Receita' : 'Iniciar Receita' }
+            </Button>
+          </Link>
+        </div>
       </div>
-      <h5 data-testid="recipe-category">{strAlcoholic}</h5>
-      <h3>Ingredientes</h3>
-      <ul>
-        {ingredients.map((ingredient, index) => (
-          <li
-            data-testid={ `${index}-ingredient-name-and-measure` }
-            key={ ingredient }
-          >
-            {`${ingredient} ${
-              measure[index] !== undefined ? `-${measure[index]}` : ''
-            }`}
-          </li>
-        ))}
-      </ul>
-      <h3>Instruções</h3>
-      <p data-testid="instructions" className="instrucoesP">{strInstructions}</p>
-      <Carousel>
-        {mealsAll.map((meals, index) => (
-          <Carousel.Item
-            interval={ 850 }
-            key={ index }
-            data-testid={ `${index}-recomendation-card` }
-          >
-            <img
-              className="d-block w-60"
-              src={ meals.strMealThumb }
-              alt="slide"
-            />
-            <Carousel.Caption data-testid={ `${index}-recomendation-title` }>
-              <h3>{meals.strMeal}</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-      <Link to={ `/bebidas/${idDrink}/in-progress` }>
-        <Button
-          type="button"
-          data-testid="start-recipe-btn"
-          className="iniciarReceita"
-          variant="danger"
-        >
-          {checkButtonstate ? 'Continuar Receita' : 'Iniciar Receita' }
-        </Button>
-        )
-      </Link>
-    </div>
+    </>
   );
 }

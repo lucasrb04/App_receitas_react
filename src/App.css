@@ -70,10 +70,12 @@ main {
 }
 
 .riscado {
-  text-decoration: solid;
+  color: white;
+  text-decoration: line-through;
 }
 
 .naoRiscado {
+  color: white;
   text-decoration: none;
 }
 
@@ -121,21 +123,20 @@ main {
 
 .iniciarReceita {
   bottom: 0;
-  position: fixed;
-  width: 100%;
+  display: flex;
+
 }
 
 .iniciarReceitaInvisible {
   bottom: 0;
-  display: none;
-  position: fixed;
-  width: 100%;
+  display: flex;
+
 }
 
-.meals > .logo {
+.meals>.logo {
   animation: shake 1.5s infinite ease;
   color: aliceblue;
-  font-family: Montserrat , sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 3em;
   font-weight: 900;
 }
@@ -191,6 +192,10 @@ main {
   margin-top: 15%;
 }
 
+.input-home {
+  background-color: black;
+}
+
 .h2 {
   justify-content: space-around;
 }
@@ -198,14 +203,14 @@ main {
 .instrucoesP {
   margin-left: 1%;
   text-align: justify;
-  width: 90%;
+  width: 100%;
 }
 
 .favorite-share {
   display: inline-flex;
   justify-content: flex-end;
   margin-bottom: 15px;
-
+  position: relative;
 }
 
 .favortieButton {
@@ -220,6 +225,23 @@ main {
 }
 
 .shadownCard {
-  box-shadow: rgba(255, 255, 255, 0.4) 5px 5px , rgba(255, 255, 255, 0.3) 10px 10px , rgba(255, 255, 255, 0.2) 15px 15px , rgba(255, 255, 255, 0.1) 20px 20px ,
-    rgba(255, 255, 255, 0.05) 25px 25px; }
+  box-shadow: rgba(255, 255, 255, 0.4) 5px 5px, rgba(255, 255, 255, 0.3) 10px 10px, rgba(255, 255, 255, 0.2) 15px 15px, rgba(255, 255, 255, 0.1) 20px 20px,
+    rgba(255, 255, 255, 0.05) 25px 25px;
+}
+
+.in_progress_recipes {
+  color: white;
+  margin-left: 1%;
+  text-align: justify;
+  width: 90%;
+}
+
+.button-recipes {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
 
