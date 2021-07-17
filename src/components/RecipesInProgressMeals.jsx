@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-
+import { Button } from 'react-bootstrap';
 import RecipesContext from '../Context/RecipesContext';
 import ShareButton from './ShareButton';
 import FavoriteButton from './FavoriteButton';
@@ -136,61 +136,69 @@ export default function RecipesInProgress() {
   };
 
   return (
-    <main>
+    <>
       <img
         src={ strMealThumb }
         alt={ `Imagem ${strMeal}` }
-        width="60px"
+        width="100%"
         data-testid="recipe-photo"
       />
-      <h2 data-testid="recipe-title">{strMeal}</h2>
-      <ShareButton />
-      <FavoriteButton
-        stateChangeHeart={ stateChangeHeart }
-        setStateChangeHeart={ setStateChangeHeart }
-        removeFavorited={ removeFavorited }
-      />
-      <h3 data-testid="recipe-category">{strCategory}</h3>
-      <h2>Ingredients</h2>
-      <ul id="ingredients">
-        {ingredientsMeals.map((ingredient, index) => (
-          <li
-            id={ ingredient }
-            key={ index }
-            className={ ingredientMade.includes(ingredient) ? 'riscado' : 'naoRiscado' }
+      <main className="in_progress_recipes">
+        <h1 data-testid="recipe-title">{strMeal}</h1>
+        <div className="favorite-share">
+          <ShareButton />
+          <FavoriteButton
+            stateChangeHeart={ stateChangeHeart }
+            setStateChangeHeart={ setStateChangeHeart }
+            removeFavorited={ removeFavorited }
+          />
+        </div>
+        <h5 data-testid="recipe-category">{strCategory}</h5>
+        <h3>Ingredients</h3>
+        <ul id="ingredients">
+          {ingredientsMeals.map((ingredient, index) => (
+            <li
+              id={ ingredient }
+              key={ index }
+              className={ ingredientMade.includes(ingredient)
+                ? 'riscado ' : 'naoRiscado ' }
 
-          >
-            {`${ingredient} - `}
-            <span data-testid={ `${index}-ingredient-step` }>
-              {`${measureMeals[index]}  `}
-              <input
-                id={ ingredient }
-                value={ ingredient }
-                type="checkbox"
-                onChange={ handleChange }
-                checked={ ingredientMade.includes(ingredient) }
-              />
-            </span>
+            >
+              {`${ingredient} - `}
+              <span data-testid={ `${index}-ingredient-step` }>
+                {`${measureMeals[index]}  `}
+                <input
+                  id={ ingredient }
+                  value={ ingredient }
+                  type="checkbox"
+                  onChange={ handleChange }
+                  checked={ ingredientMade.includes(ingredient) }
+                />
+              </span>
 
-          </li>
-        ))}
-      </ul>
-      <div>
-        <h4>Mode de Preparo</h4>
-        <p data-testid="instructions">{strInstructions}</p>
-      </div>
-      <Link to="/receitas-feitas">
-        <button
-          type="button"
-          data-testid="finish-recipe-btn"
-          disabled={ disableButton !== ingredientsMeals.length }
-          onClick={ recipeDone }
-        >
+            </li>
+          ))}
+        </ul>
+        <div>
+          <h4>Mode de Preparo</h4>
+          <p data-testid="instructions">{strInstructions}</p>
+        </div>
+        <div className="button-recipes">
+          <Link to="/receitas-feitas">
+            <Button
+              variant="danger"
+              type="button"
+              data-testid="finish-recipe-btn"
+              disabled={ disableButton !== ingredientsMeals.length }
+              onClick={ recipeDone }
+            >
 
-          Finalizar Receita
+              Finalizar Receita
 
-        </button>
-      </Link>
-    </main>
+            </Button>
+          </Link>
+        </div>
+      </main>
+    </>
   );
 }

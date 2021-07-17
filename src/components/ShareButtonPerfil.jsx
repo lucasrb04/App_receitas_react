@@ -28,12 +28,11 @@ export default function ShareButtonPerfil({ type, id, index }) {
         {msgCopy ? 'Link copiado!' : ''}
       </div>
       <button type="button" onClick={ shareLink }>
-        <img
+        {msgCopy ? 'Link copiado!' : <img
           src={ shareIcon }
           alt="botão de compartilhar"
           data-testid={ `${index}-horizontal-share-btn` }
-          // width="45px"
-        />
+        />}
       </button>
     </div>
   );

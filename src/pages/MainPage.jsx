@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { fetchAllDrinks } from '../Service/drinkApi';
@@ -12,6 +12,7 @@ import CardDrink from '../components/CardDrink';
 
 function MainPage() {
   const { pathname } = useLocation();
+
   const { responseApiLupaMeal, setResponseApiLupaMeal,
     resposeApiLupaDrink, setResponseApiLupaDrink,
   } = useContext(RecipesContext);

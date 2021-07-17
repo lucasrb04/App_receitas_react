@@ -101,79 +101,82 @@ export default function MealsDetails() {
   useEffect(changeButton, []);
 
   return (
-    <div>
+    <>
       <img
         src={ strMealThumb }
         alt="foto da comida"
         data-testid="recipe-photo"
-        width="250px"
+        width="100%"
       />
-      <h1 data-testid="recipe-title">{strMeal}</h1>
-      <div className="favorite-share">
-        <ShareButton />
-        <FavoriteButton
-          stateChangeHeart={ stateChangeHeart }
-          setStateChangeHeart={ setStateChangeHeart }
-          removeFavorited={ removeFavorited }
-        />
-      </div>
-      <h5 data-testid="recipe-category">{strCategory}</h5>
-      <h3>Ingredients</h3>
-      <ul>
-        {ingredientsMeals.map((ingredient, index) => (
-          <li data-testid={ `${index}-ingredient-name-and-measure` } key={ index }>
-            {`${ingredient} ${
-              measureMeals[index] !== undefined ? `-${measureMeals[index]}` : ''
-            }`}
-          </li>
-        ))}
-      </ul>
-      <h3>Instructions</h3>
-      <p data-testid="instructions" className="instrucoesP">
-        {strInstructions}
-        {' '}
+      <div className="in_progress_recipes">
+        <h1 data-testid="recipe-title">{strMeal}</h1>
+        <div className="favorite-share">
+          <ShareButton />
+          <FavoriteButton
+            stateChangeHeart={ stateChangeHeart }
+            setStateChangeHeart={ setStateChangeHeart }
+            removeFavorited={ removeFavorited }
+          />
+        </div>
+        <h5 data-testid="recipe-category">{strCategory}</h5>
+        <h3>Ingredients</h3>
+        <ul>
+          {ingredientsMeals.map((ingredient, index) => (
+            <li data-testid={ `${index}-ingredient-name-and-measure` } key={ index }>
+              {`${ingredient} ${
+                measureMeals[index] !== undefined ? `-${measureMeals[index]}` : ''
+              }`}
+            </li>
+          ))}
+        </ul>
+        <h3>Instructions</h3>
+        <p data-testid="instructions" className="instrucoesP">
+          {strInstructions}
+          {' '}
 
-      </p>
-      <iframe
-        data-testid="video"
-        width="560"
-        height="315"
-        src={ strVideo }
-        title="video player"
-        frameBorder="0"
-        allow="accelerometer;
+        </p>
+        <iframe
+          data-testid="video"
+          width="560"
+          height="315"
+          src={ strVideo }
+          title="video player"
+          frameBorder="0"
+          allow="accelerometer;
         autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-pict"
-      />
-      <Carousel>
-        {drinksAll.map((drink, index) => (
-          <Carousel.Item
-            interval={ 850 }
-            key={ index }
-            data-testid={ `${index}-recomendation-card` }
-          >
-            <img
-              className="d-block w-60"
-              src={ drink.strDrinkThumb }
-              alt="slide"
-            />
-            <Carousel.Caption data-testid={ `${index}-recomendation-title` }>
-              <h3>{drink.strDrink}</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-      <Link to={ `/comidas/${idMeal}/in-progress` }>
+        />
+        <Carousel>
+          {drinksAll.map((drink, index) => (
+            <Carousel.Item
+              interval={ 850 }
+              key={ index }
+              data-testid={ `${index}-recomendation-card` }
+            >
+              <img
+                className="d-block w-50"
+                src={ drink.strDrinkThumb }
+                alt="slide"
+              />
+              <Carousel.Caption data-testid={ `${index}-recomendation-title` }>
+                <h3>{drink.strDrink}</h3>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+        <div className="button-recipes">
+          <Link to={ `/comidas/${idMeal}/in-progress` }>
+            <Button
+              variant="danger"
+              type="button"
+              data-testid="start-recipe-btn"
+              className={ invisibleButton ? 'iniciarReceitaInvisible' : 'iniciarReceita' }
+            >
+              {checkButtonstate ? 'Continuar Receita' : 'Iniciar Receita' }
+            </Button>
+          </Link>
+        </div>
 
-        <Button
-          variant="danger"
-          type="button"
-          data-testid="start-recipe-btn"
-          className={ invisibleButton ? 'iniciarReceitaInvisible' : 'iniciarReceita' }
-        >
-          {checkButtonstate ? 'Continuar Receita' : 'Iniciar Receita' }
-        </Button>
-        )
-      </Link>
-    </div>
+      </div>
+    </>
   );
 }
