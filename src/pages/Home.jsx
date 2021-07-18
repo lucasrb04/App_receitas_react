@@ -61,7 +61,7 @@ function Home() {
               id="input-Email"
               data-testid="email-input"
               name="email"
-              variant="primary"
+              variant="dark"
               size="lg"
               bg="dark"
               onChange={ handleChange }
@@ -69,12 +69,14 @@ function Home() {
           </Form.Group>
           <Form.Group className="mb-3 background_imput" controlId="formGroupPassword">
             <Form.Control
+              defaultValue="#563d7c"
               type="password"
+              className="input-home"
               placeholder="Password"
               id="input-Password"
               data-testid="password-input"
               name="password"
-              variant="primary"
+              variant="dark"
               size="lg"
               bg="dark"
               onChange={ handleChange }

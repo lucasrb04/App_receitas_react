@@ -46,7 +46,7 @@ export default function AreaExplorer() {
           id="area"
           value={ selectedArea }
           onChange={ handleChange }
-          data-testid="explore-by-area-dropdown"
+          data-testid="column-filter"
         >
           <option
             data-testid="All-option"
