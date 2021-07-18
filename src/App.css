@@ -272,3 +272,23 @@ main {
   align-items: center;
   flex-wrap: column wrap;
 } */
+
+.buttonsFilters {
+  font-size: x-large;
+  /* // margin-bottom: 3%; */
+  box-shadow: 0 0 35px rgb(235, 22, 22);
+}
+
+.recipeFavorites {
+  display:flex;
+  flex-direction: wrap;
+  justify-content: space-evenly;
+}
+
+.divCard {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+}

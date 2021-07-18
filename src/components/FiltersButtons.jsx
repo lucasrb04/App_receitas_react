@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 import RecipesContext from '../Context/RecipesContext';
 
@@ -31,31 +32,40 @@ export default function FiltersButtons() {
   useEffect(filterAll, []);
 
   return (
-    <div>
-      <button
+    <div className="recipeFavorites">
+      <Button
+        variant="outline-danger"
+        size="lg"
+        className="buttonsFilters"
         type="button"
         data-testid="filter-by-all-btn"
         onClick={ filterAll }
       >
         All
 
-      </button>
-      <button
+      </Button>
+      <Button
+        variant="outline-danger"
+        size="lg"
+        className="buttonsFilters"
         type="button"
         data-testid="filter-by-food-btn"
         onClick={ filterFood }
       >
         Food
 
-      </button>
-      <button
+      </Button>
+      <Button
+        variant="outline-danger"
+        size="lg"
+        className="buttonsFilters"
         type="button"
         data-testid="filter-by-drink-btn"
         onClick={ filterDrink }
       >
         Drinks
 
-      </button>
+      </Button>
     </div>
   );
 }

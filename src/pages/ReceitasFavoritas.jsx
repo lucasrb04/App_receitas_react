@@ -17,7 +17,7 @@ function ReceitasFavoritas() {
     <main>
       <Header />
       <FiltersButtons />
-      <div className="ulCard">
+      <div className="divCard">
         { favoriteFilters === null
           ? <p />
           : favoriteFilters.map((
