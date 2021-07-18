@@ -6,7 +6,6 @@ import FiltersButtons from '../components/FiltersButtons';
 import RecipesContext from '../Context/RecipesContext';
 import ShareButtonPerfil from '../components/ShareButtonPerfil';
 import ScreenFavoriteButton from '../components/ScreenFavoriteButton';
-import '../styles/ReceitasFavoritasStyle.css';
 
 function ReceitasFavoritas() {
   const { favoriteFilters } = useContext(RecipesContext);
@@ -35,8 +34,8 @@ function ReceitasFavoritas() {
             <CardGroup key={ id } className="main-card">
               <Card
                 border="dark"
-                style={ { width: '10rem' } }
-                className="mb-2 shadownCard"
+                // style={ { width: '15rem' } }
+                className="mb-2 shadownCard xablau"
                 bg="dark"
                 text="white"
               >
@@ -49,7 +48,7 @@ function ReceitasFavoritas() {
                   />
                 </button>
                 <Card.Body>
-                  <button type="button" onClick={ () => history.push(`/${type}s/${id}`) }>
+                  <button type="button" onClick={ () => history.push(`/${type}s/${id}`) } className="iconsBackground">
                     <Card.Title
                       data-testid={ `${index}-horizontal-name` }
                     >

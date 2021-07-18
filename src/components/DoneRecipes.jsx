@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Card, CardGroup } from 'react-bootstrap';
 import RecipesContext from '../Context/RecipesContext';
 import ShareButtonPerfil from './ShareButtonPerfil';
 
@@ -13,7 +13,7 @@ export default function DoneRecipes() {
     );
   }
   return (
-    <main>
+    <main className="divCard">
       {favoriteFilters.map(
         (
           {
@@ -29,48 +29,59 @@ export default function DoneRecipes() {
           },
           index,
         ) => (
-          <div key={ id }>
-            <Link to={ `/${type}s/${id}` }>
-              <img
-                src={ image }
-                alt="xxxx"
-                data-testid={ `${index}-horizontal-image` }
-                width="50px"
-              />
-            </Link>
-            <Link to={ `/${type}s/${id}` }>
+          <CardGroup key={ id } className="main-card">
+            <Card
+              border="dark"
+              className="mb-2 shadownCard xablau"
+              bg="dark"
+              text="white"
+            >
+              <Link to={ `/${type}s/${id}` }>
+                <Card.Img
+                  variant="top"
+                  src={ image }
+                  alt="xxxx"
+                  data-testid={ `${index}-horizontal-image` }
+                  width="50px"
+                />
+              </Link>
+              <Card.Body>
+                <ShareButtonPerfil id={ id } type={ type } index={ index } />
+                <br />
+                <Link to={ `/${type}s/${id}` }>
 
-              <h3 data-testid={ `${index}-horizontal-name` }>{name}</h3>
+                  <Card.Title style={ { color: 'white' } } data-testid={ `${index}-horizontal-name` }>{name}</Card.Title>
 
-            </Link>
-            {area === '' ? null : (
-              <h4
-                data-testid={ `${index}-horizontal-top-text` }
-              >
-                {`${area} - ${category} `}
+                </Link>
+                {area === '' ? null : (
+                  <Card.Title
+                    data-testid={ `${index}-horizontal-top-text` }
+                  >
+                    {`${area} - ${category} `}
 
-              </h4>
-            )}
-            {alcoholicOrNot === '' ? null : (
-              <h4 data-testid={ `${index}-horizontal-top-text` }>
-                {alcoholicOrNot}
-              </h4>
-            )}
-            <h5 data-testid={ `${index}-horizontal-top-text` }>{type}</h5>
-            <p data-testid={ `${index}-horizontal-done-date` }>{doneDate}</p>
-            <ShareButtonPerfil id={ id } type={ type } index={ index } />
-            <div>
-              {tags[0] === null ? (
-                <p />
-              ) : (
-                tags.map((tag, i) => (
-                  <p key={ i } data-testid={ `${index}-${tag}-horizontal-tag` }>
-                    {tag}
-                  </p>
-                ))
-              )}
-            </div>
-          </div>
+                  </Card.Title>
+                )}
+                {alcoholicOrNot === '' ? null : (
+                  <Card.Text data-testid={ `${index}-horizontal-top-text` }>
+                    {alcoholicOrNot}
+                  </Card.Text>
+                )}
+                <Card.Title data-testid={ `${index}-horizontal-top-text` }>{type}</Card.Title>
+                <Card.Text data-testid={ `${index}-horizontal-done-date` }>{doneDate}</Card.Text>
+                <div>
+                  {tags[0] === null ? (
+                    <p />
+                  ) : (
+                    tags.map((tag, i) => (
+                      <Card.Text key={ i } data-testid={ `${index}-${tag}-horizontal-tag` }>
+                        {tag}
+                      </Card.Text>
+                    ))
+                  )}
+                </div>
+              </Card.Body>
+            </Card>
+          </CardGroup>
         ),
       )}
     </main>

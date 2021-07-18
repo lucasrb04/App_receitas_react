@@ -5,11 +5,11 @@ import DoneRecipes from '../components/DoneRecipes';
 
 function ReceitasFeitas() {
   return (
-    <div>
+    <main>
       <Header />
       <FiltersButtons />
       <DoneRecipes />
-    </div>
+    </main>
   );
 }
 export default ReceitasFeitas;

@@ -27,7 +27,7 @@ export default function ShareButtonPerfil({ type, id, index }) {
       <div>
         {msgCopy ? 'Link copiado!' : ''}
       </div>
-      <button type="button" onClick={ shareLink }>
+      <button type="button" onClick={ shareLink } className="iconsBackground">
         {msgCopy ? 'Link copiado!' : <img
           src={ shareIcon }
           alt="botão de compartilhar"

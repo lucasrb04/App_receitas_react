@@ -24,7 +24,7 @@ html {
   width: 100%;
 }
 
-.main-login {
+main {
   align-items: center;
   background-color: #0d0d0d;
   display: flex;
@@ -59,9 +59,9 @@ html {
   background-color: #dc3545;
 }
 
-/* .explore {
+.explore {
   background-color: #0d0d0d;
-} */
+}
 
 .imgExplore {
   margin: auto;
@@ -133,10 +133,10 @@ html {
 
 }
 
-.meals>.logo {
+.meals > .logo {
   animation: shake 1.5s infinite ease;
   color: aliceblue;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat , sans-serif;
   font-size: 3em;
   font-weight: 900;
 }
@@ -181,7 +181,6 @@ html {
   padding-bottom: 5%;
   text-decoration: none;
   text-decoration-style: none;
-
 }
 
 .ulCard {
@@ -218,21 +217,22 @@ html {
 }
 
 .profile {
-  display:flex;
-  flex-direction: column;
   align-items: center;
+  display: flex;
+  flex-direction: column;
   margin-top: 20%;
 }
 
 .buttonsProfile {
+  box-shadow: 0 0 35px rgb(235, 22, 22);
   font-size: x-large;
   margin-bottom: 30%;
-  box-shadow: 0 0 35px rgb(235, 22, 22);
 }
 
 .headingProfile {
   margin-bottom: 20%;
 }
+
 .filter-buttons {
   background-color: #0d0d0d;
   display: flex;
@@ -241,7 +241,7 @@ html {
 }
 
 .shadownCard {
-  box-shadow: rgba(255, 255, 255, 0.4) 5px 5px, rgba(255, 255, 255, 0.3) 10px 10px, rgba(255, 255, 255, 0.2) 15px 15px, rgba(255, 255, 255, 0.1) 20px 20px,
+  box-shadow: rgba(255, 255, 255, 0.4) 5px 5px , rgba(255, 255, 255, 0.3) 10px 10px, rgba(255, 255, 255, 0.2) 15px 15px, rgba(255, 255, 255, 0.1) 20px 20px,
     rgba(255, 255, 255, 0.05) 25px 25px;
 }
 
@@ -274,15 +274,16 @@ html {
 } */
 
 .buttonsFilters {
-  font-size: x-large;
-  /* // margin-bottom: 3%; */
   box-shadow: 0 0 35px rgb(235, 22, 22);
+  font-size: x-large;
+  width: 150px;
 }
 
 .recipeFavorites {
-  display:flex;
+  display: flex;
   flex-direction: wrap;
   justify-content: space-evenly;
+  margin-top: 2.5%;
 }
 
 .divCard {
@@ -290,5 +291,18 @@ html {
   background-color: black;
   display: flex;
   flex-direction: column;
-  margin-top: 10%;
+  margin-top: 2.5%;
+}
+
+link {
+  color: white;
+}
+
+
+.iconsBackground {
+  background-color: #343a40;
+}
+
+.xablau {
+  width: 17rem;
 }
