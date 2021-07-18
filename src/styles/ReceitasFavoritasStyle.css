@@ -8,6 +8,18 @@
   padding: 0;
 }
 
+.div-filtersButtons {
+  display: flex;
+}
+
+.FiltersButtons-favoritas {
+  
+}
+
+main section {
+  width: 100%;
+}
+
 .card-receitas-favoritas {
   background-color: #0d0d0d;
   width: 100%;

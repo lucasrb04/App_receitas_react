@@ -18,49 +18,51 @@ function ReceitasFavoritas() {
       <Header />
       <main>
         <FiltersButtons />
-        { favoriteFilters === null
-          ? <p />
-          : favoriteFilters.map((
-            {
-              image,
-              category,
-              name,
-              id,
-              area,
-              type,
-              alcoholicOrNot,
-            }, index,
-          ) => (
-            <div key={ id } className="card-receitas-favoritas">
-              <button type="button" className="itens-card-favoritas" onClick={ () => history.push(`/${type}s/${id}`) }>
-                <img
-                  src={ image }
-                  alt="xxxx"
-                  data-testid={ `${index}-horizontal-image` }
-                  width="50px"
-                />
-              </button>
-              <button type="button" onClick={ () => history.push(`/${type}s/${id}`) }>
-                <span
-                  data-testid={ `${index}-horizontal-name` }
-                >
-                  { name }
-                </span>
-              </button>
-              <ShareButtonPerfil type={ type } id={ id } index={ index } />
-              <ScreenFavoriteButton
-                id={ id }
-                index={ index }
-              />
-              <div data-testid={ `${index}-horizontal-top-text` }>
-                { areaAndCategory(area, category) }
-              </div>
+        <section>
+          { favoriteFilters === null
+            ? <p />
+            : favoriteFilters.map((
               {
-                alcoholicOrNot
+                image,
+                category,
+                name,
+                id,
+                area,
+                type,
+                alcoholicOrNot,
+              }, index,
+            ) => (
+              <div key={ id } className="card-receitas-favoritas">
+                <button type="button" variant="outline-light" onClick={ () => history.push(`/${type}s/${id}`) }>
+                  <img
+                    src={ image }
+                    alt="xxxx"
+                    data-testid={ `${index}-horizontal-image` }
+                    width="50px"
+                  />
+                </button>
+                <button type="button" variant="outline-light" onClick={ () => history.push(`/${type}s/${id}`) }>
+                  <span
+                    data-testid={ `${index}-horizontal-name` }
+                  >
+                    { name }
+                  </span>
+                </button>
+                <ShareButtonPerfil type={ type } id={ id } index={ index } />
+                <ScreenFavoriteButton
+                  id={ id }
+                  index={ index }
+                />
+                <div data-testid={ `${index}-horizontal-top-text` }>
+                  { areaAndCategory(area, category) }
+                </div>
+                {
+                  alcoholicOrNot
               && <h3 data-testid={ `${index}-horizontal-top-text` }>{ alcoholicOrNot }</h3>
-              }
-            </div>
-          ))}
+                }
+              </div>
+            ))}
+        </section>
       </main>
     </>
   );

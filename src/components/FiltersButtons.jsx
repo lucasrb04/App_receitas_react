@@ -31,8 +31,9 @@ export default function FiltersButtons() {
   useEffect(filterAll, []);
 
   return (
-    <div>
+    <div className="div-filtersButtons">
       <button
+        className="FiltersButtons-favoritas"
         type="button"
         data-testid="filter-by-all-btn"
         onClick={ filterAll }
@@ -41,6 +42,7 @@ export default function FiltersButtons() {
 
       </button>
       <button
+        className="FiltersButtons-favoritas"
         type="button"
         data-testid="filter-by-food-btn"
         onClick={ filterFood }
@@ -49,6 +51,7 @@ export default function FiltersButtons() {
 
       </button>
       <button
+        className="FiltersButtons-favoritas"
         type="button"
         data-testid="filter-by-drink-btn"
         onClick={ filterDrink }
