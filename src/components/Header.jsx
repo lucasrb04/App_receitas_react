@@ -23,9 +23,9 @@ function Header() {
     case '/explorar/bebidas':
       return 'Explorar Bebidas';
     case '/explorar/comidas/ingredientes':
-      return 'Explorar comidas por Ingredientes';
+      return 'Explorar por Ingredientes';
     case '/explorar/bebidas/ingredientes':
-      return 'Explorar bebidas por ingredientes';
+      return 'Explorar por ingredientes';
     case '/explorar/comidas/area':
       return 'Explorar por área';
     case '/receitas-feitas':
@@ -70,7 +70,7 @@ function Header() {
           data-testid="profile-top-btn"
         />
       </button>
-      <h3 data-testid="page-title" className="item">{ condicionRenderingTitle() }</h3>
+      <h4 data-testid="page-title" className="item">{ condicionRenderingTitle() }</h4>
       { condicionRenderSearchBar() }
       { toggleSearch && <Lupa /> }
     </header>

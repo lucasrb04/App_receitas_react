@@ -37,6 +37,7 @@ main {
 .sectionForm {
   background-color: #0d0d0d;
   margin-top: 30%;
+  padding: 20px;
   text-align: center;
 }
 
@@ -44,7 +45,7 @@ main {
   background-color: white;
   box-shadow: 0 0 45px rgb(235, 22, 22);
   margin-bottom: 15%;
-  width: 80%;
+  width: 90%;
 }
 
 .buttonLogin:hover {
@@ -305,4 +306,11 @@ link {
 
 .xablau {
   width: 17rem;
+}
+
+.selectArea {
+  align-self: center;
+  color: antiquewhite;
+  margin: 20px 0;
+  padding: 10px 100%;
 }

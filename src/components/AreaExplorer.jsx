@@ -36,34 +36,38 @@ export default function AreaExplorer() {
   };
 
   return (
-    // {}
-    <div>
+    <div className="explore">
       <Header />
 
       <label htmlFor="area">
-        <select
-          name="area"
-          id="area"
-          value={ selectedArea }
-          onChange={ handleChange }
-          data-testid="column-filter"
-        >
-          <option
-            data-testid="All-option"
-            value="all"
+        <div className="container">
+
+          <select
+            name="area"
+            id="area"
+            value={ selectedArea }
+            onChange={ handleChange }
+            data-testid="column-filter"
+            className="selectArea"
           >
-            All
-          </option>
-          { fetchedAreas.map((area) => (
             <option
-              key={ area.strArea }
-              data-testid={ `${area.strArea}-option` }
-              value={ area.strArea }
+              data-testid="All-option"
+              value="all"
+              selected
             >
-              { area.strArea }
+              All
             </option>
-          ))}
-        </select>
+            { fetchedAreas.map((area) => (
+              <option
+                key={ area.strArea }
+                data-testid={ `${area.strArea}-option` }
+                value={ area.strArea }
+              >
+                { area.strArea }
+              </option>
+            ))}
+          </select>
+        </div>
       </label>
 
       <CardMeal />

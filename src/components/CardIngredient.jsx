@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Card, CardGroup } from 'react-bootstrap';
 
 import { fetchMealsIngredients, fetchIngredientesMeal } from '../Service/foodApi';
 import { fetchDrinksIngredients, fetchIngredientesDrinks } from '../Service/drinkApi';
@@ -60,23 +61,42 @@ export default function CardIngredient() {
       <main className="explore">
         <ul>
           {finalArray.map((obj, index) => (
-            <button
-              type="button"
-              key={ index }
-              onClick={ () => fetchByingredient(Object.values(obj)[positionInArray]) }
-            >
-              <li key={ index } data-testid={ `${index}-ingredient-card` }>
-                <img
-                  width="80px"
-                  src={ `${src}${Object.values(obj)[positionInArray]}-Small.png` }
-                  alt="imagem do ingrediente"
-                  data-testid={ `${index}-card-img` }
-                />
-                <div data-testid={ `${index}-card-name` }>
-                  { Object.values(obj)[positionInArray] }
-                </div>
-              </li>
-            </button>
+            <CardGroup key={ index } className="main-card">
+              <Card
+                border="dark"
+                className="mb-2 shadownCard xablau"
+                bg="dark"
+                text="white"
+                style={ { margin: '50px' } }
+              >
+                <button
+                  type="button"
+                  key={ index }
+                  onClick={ () => fetchByingredient(Object.values(obj)[positionInArray]) }
+                  data-testid={ `${index}-ingredient-card` }
+                >
+                  <Card.Img
+                    variant="top"
+                    src={ `${src}${Object.values(obj)[positionInArray]}-Small.png` }
+                    alt="xxxx"
+                    data-testid={ `${index}-horizontal-image` }
+                    width="50px"
+                  />
+                  <Card.Body>
+                    {/* <img
+                width="80px"
+
+                alt="imagem do ingrediente"
+                data-testid={ `${index}-card-img` }
+              /> */}
+                    <div data-testid={ `${index}-card-name` }>
+                      { Object.values(obj)[positionInArray] }
+                    </div>
+
+                  </Card.Body>
+                </button>
+              </Card>
+            </CardGroup>
           ))}
         </ul>
       </main>
