@@ -52,7 +52,7 @@ export default function AreaExplorer() {
           >
             <option
               data-testid="All-option"
-              value="all"
+              value="All"
               selected
             >
               All
