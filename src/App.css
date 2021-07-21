@@ -11,6 +11,9 @@ html {
   background-color: #0d0d0d;
   scroll-behavior: smooth;
 }
+#root {
+  background-color: black;
+}
 
 .meals {
   align-items: center;
@@ -219,10 +222,16 @@ main {
 
 .profile {
   align-items: center;
+  background-color: black;
+  color: white;
   display: flex;
   flex-direction: column;
   margin-top: 20%;
 }
+
+/* .test {
+  background-color: black;
+} */
 
 .buttonsProfile {
   box-shadow: 0 0 35px rgb(235, 22, 22);

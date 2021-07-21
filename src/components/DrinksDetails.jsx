@@ -125,7 +125,7 @@ export default function DrinksDetails() {
               data-testid={ `${index}-recomendation-card` }
             >
               <img
-                className="d-block w-50"
+                className="w-100"
                 src={ meals.strMealThumb }
                 alt="slide"
               />

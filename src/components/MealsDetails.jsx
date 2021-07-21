@@ -141,9 +141,6 @@ export default function MealsDetails() {
           height="315"
           src={ strVideo }
           title="video player"
-          frameBorder="0"
-          allow="accelerometer;
-        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-pict"
         />
         <Carousel>
           {drinksAll.map((drink, index) => (
@@ -153,7 +150,7 @@ export default function MealsDetails() {
               data-testid={ `${index}-recomendation-card` }
             >
               <img
-                className="d-block w-50"
+                className="w-100"
                 src={ drink.strDrinkThumb }
                 alt="slide"
               />

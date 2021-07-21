@@ -7,7 +7,9 @@ export default function Perfil() {
   return (
     <>
       <Header />
-      <Profile />
+      <div className="test">
+        <Profile />
+      </div>
       <Footer />
     </>
   );
