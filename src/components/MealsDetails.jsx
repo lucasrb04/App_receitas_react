@@ -135,13 +135,6 @@ export default function MealsDetails() {
           {' '}
 
         </p>
-        <iframe
-          data-testid="video"
-          width="560"
-          height="315"
-          src={ strVideo }
-          title="video player"
-        />
         <Carousel>
           {drinksAll.map((drink, index) => (
             <Carousel.Item
