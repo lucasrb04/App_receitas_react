@@ -69,7 +69,7 @@ function Home() {
           </Form.Group>
           <Form.Group className="mb-3 background_imput" controlId="formGroupPassword">
             <Form.Control
-              defaultValue="#563d7c"
+              defaultValue=""
               type="password"
               className="input-home"
               placeholder="Password"
